@@ -1,0 +1,19 @@
+* Mu-Kanren 
+
+** Usage
+
+#+BEGIN_SRC common-lisp
+(defparameter empty-state '(() . 0))
+(funcall (call/fresh (lambda (q) (id q 5))) empty-state)
+;; => ((((#(0) . 5)) . 1))
+#+END_SRC
+
+** Installation
+
+** Author
+
++ David Duthie
+
+** Copyright
+
+Copyright (c) 2018 David Duthie
