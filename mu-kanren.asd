@@ -20,3 +20,6 @@
   #.(uiop:read-file-string
      (uiop:subpathname *load-pathname* "README.md"))
   :in-order-to ((test-op (test-op "mu-kanren-test"))))
+
+;; (ql:quickload :git-notify)
+

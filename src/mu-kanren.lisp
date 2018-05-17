@@ -16,14 +16,14 @@
 
 (defun ext-s (x v s) `((,x . ,v) . ,s))
 
+(defvar mzero '())
+
 (defun id (u v)
     (lambda (sc)
       (let ((s (unify u v (car sc))))
         (if s (unit `(,s . ,(cdr sc))) mzero))))
 
 (defun unit (sc) (cons sc mzero))
-
-(defvar mzero '())
 
 (defun unify (u v s)
   (let ((u (walk u s)) (v (walk v s)))
@@ -40,7 +40,7 @@
   (lambda (sc)
     (let ((c (cdr sc)))
       ;; TODO: check translation
-      (funcall (funcall f (var c)) `(,(car sc) . ,(+ c 1))))))
+      (funcall (funcall f (var c)) `(,(car sc) ,(+ c 1))))))
 
 (defun disj (g1 g2)
   (lambda (sc)
